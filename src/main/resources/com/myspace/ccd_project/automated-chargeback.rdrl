@@ -6,6 +6,7 @@ rule "automated-chargeback"
 	dialect "mvel"
 	when
 		CreditCardHolder( status in ( "Gold", "Platinum" ) )
-		FraudData( )
+		data : FraudData( )
 	then
+		data.setAutomated( true );
 end
